@@ -7,69 +7,60 @@ public class BallController : MonoBehaviour
 {
     private const float NormalMoveAmount = 0.068f;
 
-    [Range(-1f, 1f)] public float leftMoveAmount = 0.068f;
-    [Range(-1f, 1f)] public float rightMoveAmount = -0.068f;
-    [Range(-1f, 1f)] public float frontMoveAmount = -0.068f;
-    [Range(-1f, 1f)] public float backMoveAmount = 0.068f;
+    [Range(0f, 20f)] public float ballVelocity = 7.5f;
 
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
+        var direction = new Vector3(+1, 0, -1);
+        rb.velocity = direction * this.ballVelocity;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            this.rightMoveAmount = -NormalMoveAmount;
-            this.transform.position += new Vector3(this.leftMoveAmount, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            this.leftMoveAmount = NormalMoveAmount;
-            this.transform.position += new Vector3(this.rightMoveAmount, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            this.backMoveAmount = NormalMoveAmount;
-            this.transform.position += new Vector3(0, 0, this.frontMoveAmount);
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            this.frontMoveAmount = -NormalMoveAmount;
-            this.transform.position += new Vector3(0, 0, this.backMoveAmount);
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag(Tags.LeftWall.ToString()))
         {
-            this.leftMoveAmount = 0;
-            Debug.Log("Collision with left wall");
+            // Set the new velocity
+            var v = getVelocityDirectionVector(rb.velocity);
+            rb.velocity = new Vector3(-1 , 0, v.z) * ballVelocity;
         }
 
         if (collision.gameObject.CompareTag(Tags.RightWall.ToString()))
         {
-            this.rightMoveAmount = 0;
-            Debug.Log("Collision with left wall");
+            // Set the new velocity
+            var v = getVelocityDirectionVector(rb.velocity);
+            rb.velocity = new Vector3(+1 , 0, v.z) * ballVelocity;
         }
 
         if (collision.gameObject.CompareTag(Tags.FrontWall.ToString()))
         {
-            this.frontMoveAmount = 0;
-            Debug.Log("Collision with front wall");
+            // Set the new velocity
+            var v = getVelocityDirectionVector(rb.velocity);
+            rb.velocity = new Vector3(v.x, 0, +1) * ballVelocity;
         }
-        
+
         if (collision.gameObject.CompareTag(Tags.Rocket.ToString()))
         {
-            this.backMoveAmount = 0;
-            Debug.Log("Collision with rocket");
+            // Set the new velocity
+            var v = getVelocityDirectionVector(rb.velocity);
+            rb.velocity = new Vector3(v.x, 0, -1) * ballVelocity;
         }
+    }
+
+    private Vector3 getVelocityDirectionVector(Vector3 v)
+    {
+        var x = v.x > 0 ? +1 : -1;
+        var z = v.z > 0 ? +1 : -1;
+
+        return new Vector3(x, 0, z);
     }
 }
