@@ -3,6 +3,8 @@
     public enum Tags
     {
         LeftWall,
-        RightWall
+        RightWall,
+        FrontWall,
+        Rocket
     }
 }
