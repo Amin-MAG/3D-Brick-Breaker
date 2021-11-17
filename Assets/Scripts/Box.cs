@@ -7,7 +7,11 @@ public abstract class Box : MonoBehaviour
 {
     private const float Error = 0.15f;
 
+    public GameEvents gameEvents;
+
+    protected abstract bool isBreackable();
     protected abstract int GetStartingHealth();
+    protected abstract int GetScore();
 
     public int health;
 
@@ -39,7 +43,7 @@ public abstract class Box : MonoBehaviour
     {
         // Is it from front or back ?
         if (Math.Abs(this.transform.position.z - ball.transform.position.z) >
-            this.gameObject.transform.localScale.x/2)
+            this.gameObject.transform.localScale.x / 2)
         {
             if (ball.transform.position.z > this.gameObject.transform.position.z)
             {
@@ -74,5 +78,11 @@ public abstract class Box : MonoBehaviour
 
     protected void InvokeCollision(GameObject ball)
     {
+        if (this.GetScore() > 0)
+        {
+            gameEvents.lastDeltaScore = this.GetScore();
+            gameEvents.playerScore += this.GetScore();
+            gameEvents.onScoreChange.Invoke();
+        }
     }
 }

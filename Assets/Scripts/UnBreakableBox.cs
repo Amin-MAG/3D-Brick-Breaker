@@ -20,4 +20,14 @@ public class UnBreakableBox : Box
     {
         return 999999999;
     }
+
+    protected override bool isBreackable()
+    {
+        return false;
+    }
+    
+    protected override int GetScore()
+    {
+        return 0;
+    }
 }

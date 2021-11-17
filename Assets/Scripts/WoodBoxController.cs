@@ -24,4 +24,14 @@ public class WoodBoxController : Box
     {
         return 1;
     }
+
+    protected override bool isBreackable()
+    {
+        return true;
+    }
+    
+    protected override int GetScore()
+    {
+        return 1;
+    }
 }

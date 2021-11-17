@@ -9,6 +9,16 @@ public class IronBoxController : Box
         return 3;
     }
 
+    protected override bool isBreackable()
+    {
+        return true;
+    }
+
+    protected override int GetScore()
+    {
+        return 3;
+    }
+
     public void Start()
     {
         base.Start();

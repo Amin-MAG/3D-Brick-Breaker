@@ -20,4 +20,14 @@ public class BigWoodenBox : Box
     {
         return 5;
     }
+
+    protected override bool isBreackable()
+    {
+        return true;
+    }
+    
+    protected override int GetScore()
+    {
+        return 5;
+    }
 }
