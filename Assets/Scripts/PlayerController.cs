@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     [Range(-1f, 0f)] public float rightMoveAmount = -0.09f;
 
 
-
     void Update()
     {
         if (Input.GetKey(KeyCode.A))
@@ -44,6 +43,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag(Tags.Ball.ToString()))
         {
+            Debug.Log("Player");
             MoveBall(collision.gameObject);
         }
     }

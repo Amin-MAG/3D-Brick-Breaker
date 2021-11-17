@@ -26,8 +26,8 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.CompareTag(Tags.LeftWall.ToString()))
         {
             var normal = collision.contacts[0].normal;
+            Debug.Log("Left Wall");
             Debug.Log("Angle is " + Vector3.Angle(normal, rb.velocity));
-
             // Set the new velocity
             var v = MovementUtility.GetVelocityDirectionVector(rb.velocity);
             rb.velocity = new Vector3(-1, 0, v.z) * ballVelocity;
@@ -35,6 +35,7 @@ public class BallController : MonoBehaviour
 
         if (collision.gameObject.CompareTag(Tags.RightWall.ToString()))
         {
+            Debug.Log("Right Wall");
             // Set the new velocity
             var v = MovementUtility.GetVelocityDirectionVector(rb.velocity);
             rb.velocity = new Vector3(+1, 0, v.z) * ballVelocity;
@@ -42,11 +43,11 @@ public class BallController : MonoBehaviour
 
         if (collision.gameObject.CompareTag(Tags.FrontWall.ToString()))
         {
+            Debug.Log("Front Wall");
             // Set the new velocity
             var v = MovementUtility.GetVelocityDirectionVector(rb.velocity);
             rb.velocity = new Vector3(v.x, 0, +1) * ballVelocity;
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,6 +61,7 @@ public class BallController : MonoBehaviour
 
     public void kickBall()
     {
+        Debug.Log("Kicked");
         bool dir = Random.Range(-10.0f, 10.0f) > 0;
         var direction = new Vector3(dir ? -1 : +1, 0, -1);
         this.rb.velocity = direction * this.ballVelocity;
