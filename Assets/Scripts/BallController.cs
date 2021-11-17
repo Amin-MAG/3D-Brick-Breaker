@@ -52,13 +52,6 @@ public class BallController : MonoBehaviour
             rb.velocity = new Vector3(v.x, 0, +1) * ballVelocity;
         }
 
-        if (collision.gameObject.CompareTag(Tags.Rocket.ToString()))
-        {
-            // Set the new velocity
-            var v = MovementUtility.GetVelocityDirectionVector(rb.velocity);
-            rb.velocity = new Vector3(v.x, 0, -1) * ballVelocity;
-        }
-
         if (collision.gameObject.CompareTag(Tags.WoodenBox.ToString()))
         {
             Debug.Log("collide");
