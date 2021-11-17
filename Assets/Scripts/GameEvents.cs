@@ -11,6 +11,8 @@ public class GameEvents : MonoBehaviour
     private bool isStarted = false;
     public UnityEvent onGameOver;
 
+    public FrontBoard frontBoard;
+
     public BallController ballController;
 
     void Awake()
@@ -32,6 +34,7 @@ public class GameEvents : MonoBehaviour
         {
             isStarted = true;
             ballController.kickBall();
+            frontBoard.gameObject.GetComponent<TextMesh>().text = "";
         }
     }
 }

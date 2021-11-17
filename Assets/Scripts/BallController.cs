@@ -9,6 +9,8 @@ public class BallController : MonoBehaviour
 {
     public const float BallVelocity = 7.5f;
 
+    public GameEvents gameEvents;
+
     [Range(0f, 20f)] public float ballVelocity = 7.5f;
 
     public Rigidbody rb;
@@ -50,9 +52,13 @@ public class BallController : MonoBehaviour
             rb.velocity = new Vector3(v.x, 0, +1) * ballVelocity;
         }
 
-        if (collision.gameObject.CompareTag(Tags.WoodenBox.ToString()))
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(Tags.DangerZone.ToString()))
         {
-            Debug.Log("collide");
+            this.gameEvents.onGameOver.Invoke();
         }
     }
 
