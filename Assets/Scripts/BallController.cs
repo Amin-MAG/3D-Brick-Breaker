@@ -5,6 +5,7 @@ using UnityTemplateProjects;
 
 public class BallController : MonoBehaviour
 {
+    public const float BallVelocity = 7.5f;
     private const float NormalMoveAmount = 0.068f;
 
     [Range(0f, 20f)] public float ballVelocity = 7.5f;
@@ -29,38 +30,39 @@ public class BallController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(Tags.LeftWall.ToString()))
         {
+            var normal = collision.contacts[0].normal;
+            Debug.Log("Angle is " + Vector3.Angle(normal, rb.velocity));
+
             // Set the new velocity
-            var v = getVelocityDirectionVector(rb.velocity);
-            rb.velocity = new Vector3(-1 , 0, v.z) * ballVelocity;
+            var v = MovementUtility.GetVelocityDirectionVector(rb.velocity);
+            rb.velocity = new Vector3(-1, 0, v.z) * ballVelocity;
         }
 
         if (collision.gameObject.CompareTag(Tags.RightWall.ToString()))
         {
             // Set the new velocity
-            var v = getVelocityDirectionVector(rb.velocity);
-            rb.velocity = new Vector3(+1 , 0, v.z) * ballVelocity;
+            var v = MovementUtility.GetVelocityDirectionVector(rb.velocity);
+            rb.velocity = new Vector3(+1, 0, v.z) * ballVelocity;
         }
 
         if (collision.gameObject.CompareTag(Tags.FrontWall.ToString()))
         {
             // Set the new velocity
-            var v = getVelocityDirectionVector(rb.velocity);
+            var v = MovementUtility.GetVelocityDirectionVector(rb.velocity);
             rb.velocity = new Vector3(v.x, 0, +1) * ballVelocity;
         }
 
         if (collision.gameObject.CompareTag(Tags.Rocket.ToString()))
         {
             // Set the new velocity
-            var v = getVelocityDirectionVector(rb.velocity);
+            var v = MovementUtility.GetVelocityDirectionVector(rb.velocity);
             rb.velocity = new Vector3(v.x, 0, -1) * ballVelocity;
         }
-    }
 
-    private Vector3 getVelocityDirectionVector(Vector3 v)
-    {
-        var x = v.x > 0 ? +1 : -1;
-        var z = v.z > 0 ? +1 : -1;
-
-        return new Vector3(x, 0, z);
+        if (collision.gameObject.CompareTag(Tags.WoodenBox.ToString()))
+        {
+            Debug.Log("collide");
+        }
     }
+    
 }
