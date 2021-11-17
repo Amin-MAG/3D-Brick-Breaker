@@ -242,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212255380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.76, y: -1.0085, z: 4.12}
+  m_LocalPosition: {x: -0.003, y: -1.0085, z: 4.12}
   m_LocalScale: {x: 0.35778517, y: 0.35778517, z: 0.35778517}
   m_Children: []
   m_Father: {fileID: 5310457}
@@ -741,6 +741,7 @@ MonoBehaviour:
   onGameOver:
     m_PersistentCalls:
       m_Calls: []
+  ballController: {fileID: 212255386}
 --- !u!4 &712721078
 Transform:
   m_ObjectHideFlags: 0
@@ -2782,7 +2783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958052632}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.13, y: -0.9225, z: 4.4808006}
+  m_LocalPosition: {x: 0.02, y: -0.9225, z: 4.4808006}
   m_LocalScale: {x: 1.8864805, y: 0.53005946, z: 0.28440896}
   m_Children: []
   m_Father: {fileID: 5310457}
@@ -2801,7 +2802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftMoveAmount: 0.09
-  rightMoveAmount: -0.09
+  rightMoveAmount: 0
 --- !u!54 &1958052638
 Rigidbody:
   m_ObjectHideFlags: 0

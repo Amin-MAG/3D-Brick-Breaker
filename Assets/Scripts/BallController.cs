@@ -16,9 +16,6 @@ public class BallController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        var direction = new Vector3(+1, 0, -1);
-        rb.velocity = direction * this.ballVelocity;
     }
 
     // Update is called once per frame
@@ -57,5 +54,12 @@ public class BallController : MonoBehaviour
             Debug.Log("collide");
         }
     }
-    
+
+
+    public void kickBall()
+    {
+        bool dir = Random.Range(-10.0f, 10.0f) > 0;
+        var direction = new Vector3(dir ? -1 : +1, 0, -1);
+        this.rb.velocity = direction * this.ballVelocity;
+    }
 }

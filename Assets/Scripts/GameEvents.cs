@@ -8,7 +8,10 @@ using UnityEngine.SceneManagement;
 
 public class GameEvents : MonoBehaviour
 {
+    private bool isStarted = false;
     public UnityEvent onGameOver;
+
+    public BallController ballController;
 
     void Awake()
     {
@@ -21,6 +24,14 @@ public class GameEvents : MonoBehaviour
         if (Input.GetKey(KeyCode.R) && Input.GetKey(KeyCode.LeftShift))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            isStarted = false;
+        }
+
+        // Start the game
+        if (Input.GetKey(KeyCode.Space) && !isStarted)
+        {
+            isStarted = true;
+            ballController.kickBall();
         }
     }
 }
