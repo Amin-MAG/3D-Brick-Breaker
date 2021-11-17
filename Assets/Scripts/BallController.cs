@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityTemplateProjects;
+using Random = UnityEngine.Random;
 
 public class BallController : MonoBehaviour
 {
     public const float BallVelocity = 7.5f;
-    private const float NormalMoveAmount = 0.068f;
 
     [Range(0f, 20f)] public float ballVelocity = 7.5f;
 

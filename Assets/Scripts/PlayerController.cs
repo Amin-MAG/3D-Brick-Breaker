@@ -6,17 +6,13 @@ using UnityTemplateProjects;
 
 public class PlayerController : MonoBehaviour
 {
-    private const float NormalMoveAmount = 0.068f;
+    private const float NormalMoveAmount = 0.09f;
 
-    [Range(0f, 1f)] public float leftMoveAmount = 0.068f;
-    [Range(-1f, 0f)] public float rightMoveAmount = -0.068f;
+    [Range(0f, 1f)] public float leftMoveAmount = 0.09f;
+    [Range(-1f, 0f)] public float rightMoveAmount = -0.09f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKey(KeyCode.A))
