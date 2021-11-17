@@ -1,10 +1,12 @@
-﻿namespace UnityTemplateProjects
+﻿public enum Tags
 {
-    public enum Tags
-    {
-        LeftWall,
-        RightWall,
-        FrontWall,
-        Rocket
-    }
+    Ball,
+    
+    LeftWall,
+    RightWall,
+    FrontWall,
+    Rocket,
+
+    // Boxes
+    WoodenBox
 }

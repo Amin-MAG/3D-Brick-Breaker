@@ -8,6 +8,10 @@ TagManager:
   - RightWall
   - FrontWall
   - Rocket
+  - Box
+  - WoodenBox
+  - Ball
+  - IronBox
   layers:
   - Default
   - TransparentFX
