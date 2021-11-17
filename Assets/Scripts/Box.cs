@@ -39,7 +39,7 @@ public abstract class Box : MonoBehaviour
     {
         // Is it from front or back ?
         if (Math.Abs(this.transform.position.z - ball.transform.position.z) >
-            this.gameObject.transform.localScale.x - Box.Error)
+            this.gameObject.transform.localScale.x/2)
         {
             if (ball.transform.position.z > this.gameObject.transform.position.z)
             {
