@@ -6,10 +6,10 @@ using UnityTemplateProjects;
 
 public class PlayerController : MonoBehaviour
 {
-    private const float NormalMoveAmount = 0.09f;
+    private const float NormalMoveAmount = 0.2f;
 
-    [Range(0f, 1f)] public float leftMoveAmount = 0.09f;
-    [Range(-1f, 0f)] public float rightMoveAmount = -0.09f;
+    [Range(0f, 1f)] public float leftMoveAmount = 0.2f;
+    [Range(-1f, 0f)] public float rightMoveAmount = -0.2f;
 
 
     void Update()
