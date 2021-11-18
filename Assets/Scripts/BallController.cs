@@ -66,4 +66,9 @@ public class BallController : MonoBehaviour
         var direction = new Vector3(dir ? -1 : +1, 0, -1);
         this.rb.velocity = direction * this.ballVelocity;
     }
+
+    public void Stop()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
+    }
 }

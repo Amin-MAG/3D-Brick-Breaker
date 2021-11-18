@@ -25,6 +25,7 @@ public abstract class Box : MonoBehaviour
     {
         if (health == 0)
         {
+            gameEvents.numberOfBreakableBoxes--;
             Destroy(this.gameObject);
         }
     }

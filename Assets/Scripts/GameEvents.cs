@@ -11,6 +11,8 @@ public class GameEvents : MonoBehaviour
     public int playerScore = 0;
     public int lastDeltaScore = 0;
 
+    public int numberOfBreakableBoxes = 0;
+
     private bool isStarted = false;
     public UnityEvent onGameOver;
     public UnityEvent onScoreChange;
@@ -46,6 +48,14 @@ public class GameEvents : MonoBehaviour
             isStarted = true;
             ballController.kickBall();
             frontBoard.gameObject.GetComponent<TextMesh>().text = "";
+            descriptionBoard.gameObject.GetComponent<TextMesh>().text = "";
+        }
+
+        // Win
+        if (numberOfBreakableBoxes == 0)
+        {
+            ballController.Stop();
+            frontBoard.gameObject.GetComponent<TextMesh>().text = "You Won";
             descriptionBoard.gameObject.GetComponent<TextMesh>().text = "";
         }
     }
