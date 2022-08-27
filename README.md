@@ -4,17 +4,14 @@
   <img src="https://github.com/Amin-MAG/3D-Brick-Breaker/blob/master/docs/image01.png?raw=true" />
 </p>
 
-This game is a 3D implementation of classic "Brick Breaker" game. There are bunch of boxes that you should remove to win the game. Also you must be careful not to miss the ball!
+This game is a 3D implementation of the classic "Brick Breaker" game. There are a bunch of boxes that you should remove to win the game. Also, you must be careful not to miss the ball!
 
-
-> **NOTE**: This game is for Assignment 3 - Game Development 2021 - IUST 
-
+[**Here is the release page!**](https://amin-mag.itch.io/box-breaker)
+[**Here is a reaction to the classical game jam in itch.io**](https://www.youtube.com/watch?v=Sjezpn5R6gU)
 
 ## Features
 
-> In Development: The project is not completed yet.
-
-There are some features of this game.
+Here are some features of this game.
 
 - [x] Implement Ground
 - [x] Create the ball and its movements
